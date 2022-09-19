@@ -11,14 +11,17 @@ if (mysqli_num_rows($q) > 0) {
     $_SESSION['id_pelanggan'] = $r['id_pelanggan'];
     $_SESSION['username'] = $r['username'];
     $_SESSION['password'] = $r['password'];
+    $_SESSION['nama'] = $r['nama'];
     $_SESSION['status_login']=true;
-    header('location:home.php');
+    header('location:pelanggan/index-4.php');
 }
-elseif (mysqli_num_rows($q2) >0 ) {
+else if (mysqli_num_rows($q2) > 0 ) {
     $_SESSION['id_petugas'] = $row['id_petugas'];
     $_SESSION['username'] = $row['username'];
     $_SESSION['password'] = $row['password'];
-    header('location:admin.php');
+    $_SESSION['nama_petugas'] = $row['nama_petugas'];
+    $_SESSION['status_login']=true;
+    header('location:index.php');
 }else {
     echo "Login Gagal";
 }

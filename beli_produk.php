@@ -18,15 +18,20 @@ method="post">
 <thead>
 <tr>
 <td>Nama
-Buku</td><td><?=$dt_buku['nama_produk']?></td>
+Buku
+</td><td><?=$dt_buku['nama_produk']?></td>
 </tr>
-<tr>
 
+<tr>
 <td>Deskripsi</td><td><?=$dt_buku['deskripsi']?></td>
 </tr>
 <tr>
 
-<td>Jumlah Pinjam</td><td><input type="number"
+<tr>
+<td>Harga</td><td><?=$dt_buku['harga']?></td>
+</tr>
+<tr>
+<td>Jumlah Produk</td><td><input type="number"
 name="jumlah_pinjam" value="1"></td>
 </tr>
 <tr>

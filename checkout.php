@@ -10,8 +10,7 @@ foreach ($cart as $key_produk => $val_produk) {
 
     $id=mysqli_insert_id($conn);
 
-$subtotal = $val_produk['qty']*$val_produk['harga'];
-
+    $subtotal = $val_produk['qty']*$val_produk['harga']; 
 mysqli_query($conn,"insert into detail_transaksi(id_transaksi,qty,subtotal) value('".$id."','".$val_produk['qty']."','".$subtotal."')");
 }
 unset($_SESSION['cart']);

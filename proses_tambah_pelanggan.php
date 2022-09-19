@@ -18,7 +18,7 @@ if($_POST){
         include "toko_online.php";
         $insert=mysqli_query($conn,"insert into pelanggan (nama, alamat, telp, username, password) value ('".$nama."','".$alamat."','".$telp."', '".$username."', '".md5($password)."')")or die(mysqli_error($conn));
         if($insert){
-            echo "<script>alert('Sukses menambahkan pelanggan');location.href='tambah_pelanggan.php';</script>";
+            echo "<script>alert('Sukses menambahkan pelanggan');location.href='login1.php';</script>";
         } else {
             echo "<script>alert('Gagal menambahkan pelanggan');location.href='tambah_pelanggan.php';</script>";
         }

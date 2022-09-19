@@ -2,45 +2,131 @@
 error_reporting(E_ERROR | E_PARSE);
 session_start();
 if($_SESSION['status_login']==true){
-header('location: home.php');
+header('location: pelanggan/index-4.php');
 }else{
 ?>
-
-
-<!DOCTYPE html>
 <html>
-<head>
-<link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-crossorigin="anonymous">
-<title></title>
-</head>
-<body>
-<div class="row" style="margin-top:50px;">
-<div class="col-md"></div>
-<div class="col-md rounded bg-light" style="box-shadow: 4px 4px 5px-4px;padding:10px">
-<form action="proses_login.php" method="post" enctype="multipart/form-data">
-<h3 align="center">LOGIN Perpus Online</h3>
-Username:
+<link rel="stylesheet"  href="style1.css">
 
-<input type="text" name="username" value="" class="form-control">
 
-password:
-
-<input type="password" name="password" class="form-control"><br>
-
-<center><input type="submit" name="login" class="btn btn-success" value="LOGIN"></center>
-
+<div id="container" class="container">
+		<!-- FORM SECTION -->
+		<div class="row">
+            
+			<!-- SIGN UP -->
+			<div class="col align-items-center flex-col sign-up">
+				<div class="form-wrapper align-items-center">
+               
+                <form action="proses_tambah_pelanggan.php" method="post">
+					<div class="form sign-up">
+						<div class="input-group">
+							<i class='bx bxs-user'></i>
+							<input type="text" name="nama" placeholder="Nama">
+						</div>
+						<div class="input-group">
+							<i class='bx bx-mail-send'></i>
+							<input id="" name="alamat" placeholder="Alamat" required></input><br>
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="number" name="telp" value="" placeholder="Nomor Telepon">
+						</div>
+                        <div class="input-group">
+							<i class='bx bxs-user'></i>
+							<input type="text" name="user" value="" placeholder="Username">
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" name="pass" value="" placeholder="Password">
+						</div>
+						<button>
+							Sign up
+						</button>
+						<p>
 </form>
-</div>
-<div class="col-md"></div>
-</div>
-<script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-
-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-crossorigin="anonymous"></script>
-</body>
+							<span>
+								Already have an account?
+							</span>
+							<b onclick="toggle()" class="pointer">
+								Sign in here
+							</b>
+						</p>
+					</div>
+				</div>
+			
+			</div>
+			<!-- END SIGN UP -->
+			<!-- SIGN IN -->
+			<div class="col align-items-center flex-col sign-in">
+				<div class="form-wrapper align-items-center">
+					<div class="form sign-in">
+                    <form action="proses_login.php" method="post" enctype="multipart/form-data">
+						<div class="input-group">
+							<i class='bx bxs-user'></i>
+							<input type="text" name="username" placeholder="Username" value="">
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password"  name="password" placeholder="Password">
+						</div>
+						<button>
+							Sign in
+						</button>
+						<p>
+							<b>
+								Forgot password?
+							</b>
+						</p>
+						<p>
+							<span>
+								Don't have an account?
+							</span>
+							<b onclick="toggle()" class="pointer">
+								Sign up here
+							</b>
+						</p>
+					</div>
+				</div>
+				<div class="form-wrapper">
+		
+				</div>
+			</div>
+			<!-- END SIGN IN -->
+		</div>
+		<!-- END FORM SECTION -->
+		<!-- CONTENT SECTION -->
+		<div class="row content-row">
+			<!-- SIGN IN CONTENT -->
+			<div class="col align-items-center flex-col">
+				<div class="text sign-in">
+					<h2>
+						Welcome to Yoel Store
+					</h2>
+	
+				</div>
+				<div class="img sign-in">
+		
+				</div>
+			</div>
+			<!-- END SIGN IN CONTENT -->
+			<!-- SIGN UP CONTENT -->
+			<div class="col align-items-center flex-col">
+				<div class="img sign-up">
+				
+				</div>
+				<div class="text sign-up">
+					<h2>
+						Join with us
+					</h2>
+	
+				</div>
+			</div>
+			<!-- END SIGN UP CONTENT -->
+		</div>
+		<!-- END CONTENT SECTION -->
+	</div>
+    <script src="animation.js   " type="text/javascript"></script>
+
 </html>
 <?php
 }
