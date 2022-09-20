@@ -11,15 +11,15 @@ $ukuran = $_FILES['foto']['size'];
 $ext = pathinfo($filename, PATHINFO_EXTENSION);
  
 if(!in_array($ext,$ekstensi) ) {
-	header("location:tambah_produk.php?alert=gagal_ekstensi");
+	header("location:icons.html?alert=gagal_ekstensi");
 }else{
 	if($ukuran < 1044070){		
 		$xx =$filename;
 		move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/'.''.$filename);
 		mysqli_query($conn, "INSERT INTO produk VALUES(NULL,'$nama_produk','$deskripsi','$harga','$xx')");
-		echo "<script>alert('Sukses menambahkan produk');location.href='tambah_produk.php';</script>";
+		echo "<script>alert('Sukses menambahkan produk');location.href='icons.html';</script>";
 	}else{
-		echo "<script>alert('Gagal menambahkan produk');location.href='tambah_produk.php';</script>";
+		echo "<script>alert('Gagal menambahkan produk');location.href='icons.html';</script>";
 	}
 }
 ?>

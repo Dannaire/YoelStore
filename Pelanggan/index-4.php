@@ -13,7 +13,7 @@ header('location: ../login.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Happy E-Commerce</title>
+    <title>Yoel Store</title>
     <meta name="keywords" content="HTML5 Template">
     <meta name="description" content="Happy E-Commerce">
     <meta name="author" content="p-themes">
@@ -544,7 +544,7 @@ header('location: ../login.php');
                         <div class="container intro-content">
                             <div class="row justify-content-end">
                                 <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                                    <h3 class="intro-subtitle text-primary">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                                    <h3 class="intro-subtitle text-primary">Our Product</h3><!-- End .h3 intro-subtitle -->
                                     <h1 class="intro-title">Apple iPad Pro <br>12.9 Inch, 64GB </h1><!-- End .intro-title -->
 
                                     <div class="intro-price">
@@ -700,7 +700,7 @@ header('location: ../login.php');
             <div class="container new-arrivals">
                 <div class="heading heading-flex mb-3">
                     <div class="heading-left">
-                        <h2 class="title">New Arrivals</h2><!-- End .title -->
+                        <h2 class="title">Our Products</h2><!-- End .title -->
                     </div><!-- End .heading-left -->
 
                    <div class="heading-right">

@@ -159,7 +159,7 @@ header('location: login.php');
                 <thead>
                     <tr>
                     <th>NO</th><th>NAMA</th><th>ALAMAT</th>
-                    <th>TELP</th></th><th>AKSI</th>
+                    <th>TELP</th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -175,8 +175,7 @@ header('location: login.php');
                     <td><?=$data_pelanggan['nama']?></td>
                     <td><?=$data_pelanggan['alamat']?></td>
                     <td><?=$data_pelanggan['telp']?></td>
-                    <td><a href="ubah_pelanggan.php?id_pelanggan=<?=$data_pelanggan['id_pelanggan']?>" class="btn btn-success">Ubah</a> 
-                    <a href="hapus_pelanggan.php?id_pelanggan=<?=$data_pelanggan['id_pelanggan']?>" onclick="return confirm('Apakah anda yakin menghapus data ini?')" class="btn btn-danger">Hapus</a></td>
+                    
                     </tr>
              <?php
              }

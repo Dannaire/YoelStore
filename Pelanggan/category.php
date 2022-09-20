@@ -13,7 +13,7 @@ header('location: ../login.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Molla - Bootstrap eCommerce Template</title>
+    <title>Yoel Store</title>
     <meta name="keywords" content="HTML5 Template">
     <meta name="description" content="Molla - Bootstrap eCommerce Template">
     <meta name="author" content="p-themes">
@@ -508,7 +508,7 @@ header('location: ../login.php');
         <main class="main">
         	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
         		<div class="container">
-        			<h1 class="page-title">Happy E-Commerce<span>Online Shop</span></h1>
+        			<h1 class="page-title">Yoel Store<span>Online Shop</span></h1>
         		</div><!-- End .container -->
         	</div><!-- End .page-header -->
             <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
@@ -595,7 +595,7 @@ header('location: ../login.php');
                                     <div class="row">
                          <?php
 include "../toko_online.php";
-$qry_buku=mysqli_query($conn,"select * from produk where id_produk ");
+$qry_buku=mysqli_query($conn,"select * from produk where id_produk between 25 and 35 ");
 while($dt_buku=mysqli_fetch_array($qry_buku)){
 ?>
  <span class="product-label label-new">New</span>
@@ -665,9 +665,9 @@ href="beli_produk.php?id_produk=<?=$dt_buku['id_produk']?>" class="btn btn-prima
 							                <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>< Prev
 							            </a>
 							        </li>
-							        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-							        <li class="page-item"><a class="page-link" href="#">2</a></li>
-							        <li class="page-item"><a class="page-link" href="#">3</a></li>
+							        <li class="page-item active" aria-current="page"><a class="page-link" href="category.php">1</a></li>
+							        <li class="page-item"><a class="page-link" href="category2.php">2</a></li>
+							        <li class="page-item"><a class="page-link" href="category3.php">3</a></li>
 							        <li class="page-item-total">of 6</li>
 							        <li class="page-item">
 							            <a class="page-link page-link-next" href="#" aria-label="Next">

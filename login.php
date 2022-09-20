@@ -1,10 +1,4 @@
-<?php
-error_reporting(E_ERROR | E_PARSE);
-session_start();
-if($_SESSION['status_login']==true){
-header('location: pelanggan/index-4.php');
-}else{
-?>
+
 <html>
 <link rel="stylesheet"  href="style1.css">
 
@@ -128,6 +122,3 @@ header('location: pelanggan/index-4.php');
     <script src="animation.js   " type="text/javascript"></script>
 
 </html>
-<?php
-}
-?>

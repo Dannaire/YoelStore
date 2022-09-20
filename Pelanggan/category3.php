@@ -8,7 +8,7 @@ header('location: ../login.php');
 <html lang="en">
 
 
-<!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
+<!-- molla/category.html  22 Nov 2019 10:02:48 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,6 +33,9 @@ header('location: ../login.php');
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Main CSS File -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/plugins/nouislider/nouislider.css">
 </head>
 
 <body>
@@ -500,81 +503,408 @@ header('location: ../login.php');
                 </div><!-- End .container -->
             </div><!-- End .header-bottom -->
         </header><!-- End .header -->
+       
 
         <main class="main">
         	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
         		<div class="container">
-        			<h1 class="page-title">Histori Pembelian<span> Yoel Store</span></h1>
+        			<h1 class="page-title">Happy E-Commerce<span>Online Shop</span></h1>
         		</div><!-- End .container -->
         	</div><!-- End .page-header -->
-            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index-4.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="category.php">Shop</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Histori</li>
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Product</li>
                     </ol>
                 </div><!-- End .container -->
             </nav><!-- End .breadcrumb-nav -->
 
             <div class="page-content">
-            	<div class="cart">
-	                <div class="container">
-	                	<div class="row">
-	                		
-	                			<table class="table table-cart table-mobile">
-                                <thead>
-                                <?php 
-    error_reporting(E_ERROR | E_PARSE);
-    session_start();
-    $id = $_SESSION['id_pelanggan'];
+                <div class="container">
+                	<div class="row">
+                		<div class="col-lg-9">
+                			<div class="toolbox">
+                				<div class="toolbox-left">
+                					<div class="toolbox-info">
+                						Showing <span>9 </span> Products
+                					</div><!-- End .toolbox-info -->
+                				</div><!-- End .toolbox-left -->
+
+                				<div class="toolbox-right">
+                					<div class="toolbox-sort">
+                						<label for="sortby">Sort by:</label>
+                						<div class="select-custom">
+											<select name="sortby" id="sortby" class="form-control">
+												<option value="popularity" selected="selected">Most Popular</option>
+												<option value="rating">Most Rated</option>
+												<option value="date">Date</option>
+											</select>
+										</div>
+                					</div><!-- End .toolbox-sort -->
+                					<div class="toolbox-layout">
+                						<a href="category-list.html" class="btn-layout">
+                							<svg width="16" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="10" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="10" height="4" />
+                							</svg>
+                						</a>
+
+                						<a href="category-2cols.html" class="btn-layout">
+                							<svg width="10" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="4" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="4" height="4" />
+                							</svg>
+                						</a>
+
+                						<a href="category.php" class="btn-layout active">
+                							<svg width="16" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="4" height="4" />
+                								<rect x="12" y="0" width="4" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="4" height="4" />
+                								<rect x="12" y="6" width="4" height="4" />
+                							</svg>
+                						</a>
+
+                						<a href="category-4cols.html" class="btn-layout">
+                							<svg width="22" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="4" height="4" />
+                								<rect x="12" y="0" width="4" height="4" />
+                								<rect x="18" y="0" width="4" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="4" height="4" />
+                								<rect x="12" y="6" width="4" height="4" />
+                								<rect x="18" y="6" width="4" height="4" />
+                							</svg>
+                						</a>
+                					</div><!-- End .toolbox-layout -->
+                				</div><!-- End .toolbox-right -->
+                			</div><!-- End .toolbox -->
+
+                            <div class="products mb-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="row">
+                         <?php
+include "../toko_online.php";
+$qry_buku=mysqli_query($conn,"select * from produk where id_produk between 47 and 57 ");
+while($dt_buku=mysqli_fetch_array($qry_buku)){
 ?>
+ <span class="product-label label-new">New</span>
+ <a href="product.html">
+<div class="col-md-4">
+<div class="card" >
+<img src="../gambar/<?=$dt_buku['foto']?>" class="product-image">
+<div class="product-action-vertical">
+<a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+<a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+<a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+</div><!-- End .product-action-vertical -->
+<div class="product-action">
+                              <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                </div><!-- End .product-action -->
+                                           
+<div class="product-body">
+<h5 class="card-title"><?=$dt_buku['nama_produk']?></h5>
+<h5 class="card-title">Rp.<?=$dt_buku['harga']?></h5>
+<p class="card-text"><?=substr($dt_buku['deskripsi'],
+0,20)?></p>
+<a
+href="beli_produk.php?id_produk=<?=$dt_buku['id_produk']?>" class="btn btn-primary btn-round">Beli</a>
 
-    <thead>
-        <th>NO</th><th>Tanggal transaksi</th><th>Nama Produk</th><th>Jumlah</th><th>Harga</th><th>Total Harga</th><th>Aksi</th>
-    </thead>
-    <tbody>
-        <?php 
-        include "../toko_online.php";
-        $sql = mysqli_query($conn, "SELECT A.nama_produk,B.tgl_transaksi,A.harga,C.qty,C.subtotal,B.id_transaksi FROM produk A JOIN transaksi B ON A.id_produk=B.id_produk JOIN detail_transaksi C ON B.id_transaksi=C.id_transaksi WHERE B.id_pelanggan='$id'" );
-    
-
-$no=0;
-if (mysqli_num_rows($sql) > 0) {
-while($histori = mysqli_fetch_array($sql)){
-    $no++;
-    $hapus="<td><a href='../hapushistori.php?id_transaksi=$histori[id_transaksi]' onclick='return confirm(Apakah anda yakin menghapus data ini?)' class='btn btn-danger'>Hapus Histori</a></td>";
-?>
-<tr>
-                <td><?=$no?></td>
-                <td><?=$histori['tgl_transaksi']?></td>
-                <td><?=$histori['nama_produk']?></td>
-                <td><?=$histori['qty']?></td>
-                <td><?=$histori['harga']?></td>
-                <td><?=$histori['subtotal'].$hapus?></td>
-            </tr>
-            <?php
+</div>
+</div>
+</div>
+<?php
 }
-}
-else {
-    echo("
-    <tr>
-     <td colspan='8'><p style='text-align:center'>Tidak Ada History</p></td>
-    </tr>  
-    ");
-}
-            ?>
+?>                                                                      
+<div class="product-body">
+</div>
+</div>
+</div>
+                                     
 
-	                				</table><!-- End .table table-summary -->
+                                           
 
-	                				<a href="category.php" class="btn btn-outline-primary-2 btn-order btn-block">CONTINUE SHOPPING </a>
-	                			</div><!-- End .summary -->
+                                  
 
-		            			
-	                		</aside><!-- End .col-lg-3 -->
-	                	</div><!-- End .row -->
-	                </div><!-- End .container -->
-                </div><!-- End .cart -->
+                                  
+
+                                  
+
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                       
+                                    </div><!-- End .col-sm-6 col-lg-4 -->
+
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                        
+                                    </div><!-- End .col-sm-6 col-lg-4 -->
+
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                       
+                                    </div><!-- End .col-sm-6 col-lg-4 -->
+
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                        <
+                                    </div><!-- End .col-sm-6 col-lg-4 -->
+                                </div><!-- End .row -->
+                            </div><!-- End .products -->
+
+                			<nav aria-label="Page navigation">
+							    <ul class="pagination justify-content-center">
+							        <li class="page-item disabled">
+							            <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+							                <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>< Prev
+							            </a>
+							        </li>
+							        <li class="page-item active" aria-current="page"><a class="page-link" href="category.php">1</a></li>
+							        <li class="page-item"><a class="page-link" href="category2.php">2</a></li>
+							        <li class="page-item"><a class="page-link" href="category3.php">3</a></li>
+							        <li class="page-item-total">of 6</li>
+							        <li class="page-item">
+							            <a class="page-link page-link-next" href="#" aria-label="Next">
+							                Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+							            </a>
+							        </li>
+							    </ul>
+							</nav>
+                		</div><!-- End .col-lg-9 -->
+                		<aside class="col-lg-3 order-lg-first">
+                			<div class="sidebar sidebar-shop">
+                				<div class="widget widget-clean">
+                					<label>Filters:</label>
+                					<a href="#" class="sidebar-filter-clear">Clean All</a>
+                				</div><!-- End .widget widget-clean -->
+
+                				<div class="widget widget-collapsible">
+    								<h3 class="widget-title">
+									    <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true" aria-controls="widget-1">
+									        Category
+									    </a>
+									</h3><!-- End .widget-title -->
+
+									<div class="collapse show" id="widget-1">
+										<div class="widget-body">
+											<div class="filter-items filter-items-count">
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-1">
+														<label class="custom-control-label" for="cat-1">Laptop</label>
+													</div><!-- End .custom-checkbox -->
+													<span class="item-count">1</span>
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-2">
+														<label class="custom-control-label" for="cat-2">Handphone</label>
+													</div><!-- End .custom-checkbox -->
+													<span class="item-count">2</span>
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-3">
+														<label class="custom-control-label" for="cat-3">SmartWatch</label>
+													</div><!-- End .custom-checkbox -->
+													<span class="item-count">1</span>
+												</div><!-- End .filter-item -->
+
+										
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-5">
+														<label class="custom-control-label" for="cat-5">Go-Pro</label>
+													</div><!-- End .custom-checkbox -->
+													<span class="item-count">1</span>
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-6">
+														<label class="custom-control-label" for="cat-6">Headphones</label>
+													</div><!-- End .custom-checkbox -->
+													<span class="item-count">1</span>
+												</div><!-- End .filter-item -->
+
+											
+												</div><!-- End .filter-item -->
+											</div><!-- End .filter-items -->
+										</div><!-- End .widget-body -->
+									</div><!-- End .collapse -->
+        						</div><!-- End .widget -->
+
+        						<div class="widget widget-collapsible">
+    								<h3 class="widget-title">
+									    <a data-toggle="collapse" href="#widget-2" role="button" aria-expanded="true" aria-controls="widget-2">
+									        Location
+									    </a>
+									</h3><!-- End .widget-title -->
+
+									<div class="collapse show" id="widget-2">
+										<div class="widget-body">
+											<div class="filter-items">
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="size-1">
+														<label class="custom-control-label" for="size-1">Indonesia</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="size-2">
+														<label class="custom-control-label" for="size-2">Malaysia</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" checked id="size-3">
+														<label class="custom-control-label" for="size-3">Singapore</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" checked id="size-4">
+														<label class="custom-control-label" for="size-4">United States</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="size-5">
+														<label class="custom-control-label" for="size-5">United Kingdom</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="size-6">
+														<label class="custom-control-label" for="size-6">Rusia</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+											</div><!-- End .filter-items -->
+										</div><!-- End .widget-body -->
+									</div><!-- End .collapse -->
+        						</div><!-- End .widget -->
+
+        						<div class="widget widget-collapsible">
+    								<h3 class="widget-title">
+									    <a data-toggle="collapse" href="#widget-3" role="button" aria-expanded="true" aria-controls="widget-3">
+									        Colour
+									    </a>
+									</h3><!-- End .widget-title -->
+
+									<div class="collapse show" id="widget-3">
+										<div class="widget-body">
+											<div class="filter-colors">
+												<a href="#" style="background: #b87145;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #f0c04a;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #333333;"><span class="sr-only">Color Name</span></a>
+												<a href="#" class="selected" style="background: #cc3333;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #3399cc;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #669933;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #f2719c;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #ebebeb;"><span class="sr-only">Color Name</span></a>
+											</div><!-- End .filter-colors -->
+										</div><!-- End .widget-body -->
+									</div><!-- End .collapse -->
+        						</div><!-- End .widget -->
+
+        						<div class="widget widget-collapsible">
+    								<h3 class="widget-title">
+									    <a data-toggle="collapse" href="#widget-4" role="button" aria-expanded="true" aria-controls="widget-4">
+									        Brand
+									    </a>
+									</h3><!-- End .widget-title -->
+
+									<div class="collapse show" id="widget-4">
+										<div class="widget-body">
+											<div class="filter-items">
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-1">
+														<label class="custom-control-label" for="brand-1">Apple</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-2">
+														<label class="custom-control-label" for="brand-2">Go-Pro</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-3">
+														<label class="custom-control-label" for="brand-3">Samsung</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-4">
+														<label class="custom-control-label" for="brand-4">Asus</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-5">
+														<label class="custom-control-label" for="brand-5">Lenovo</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-6">
+														<label class="custom-control-label" for="brand-6">Acer</label>
+													</div><!-- End .custom-checkbox -->
+												</div><!-- End .filter-item -->
+
+												
+
+											</div><!-- End .filter-items -->
+										</div><!-- End .widget-body -->
+									</div><!-- End .collapse -->
+        						</div><!-- End .widget -->
+
+        						<div class="widget widget-collapsible">
+    								<h3 class="widget-title">
+									    <a data-toggle="collapse" href="#widget-5" role="button" aria-expanded="true" aria-controls="widget-5">
+									        Price
+									    </a>
+									</h3><!-- End .widget-title -->
+
+									<div class="collapse show" id="widget-5">
+										<div class="widget-body">
+                                            <div class="filter-price">
+                                                <div class="filter-price-text">
+                                                    Price Range:
+                                                    <span id="filter-price-range"></span>
+                                                </div><!-- End .filter-price-text -->
+
+                                                <div id="price-slider"></div><!-- End #price-slider -->
+                                            </div><!-- End .filter-price -->
+										</div><!-- End .widget-body -->
+									</div><!-- End .collapse -->
+        						</div><!-- End .widget -->
+                			</div><!-- End .sidebar sidebar-shop -->
+                		</aside><!-- End .col-lg-3 -->
+                	</div><!-- End .row -->
+                </div><!-- End .container -->
             </div><!-- End .page-content -->
         </main><!-- End .main -->
 
