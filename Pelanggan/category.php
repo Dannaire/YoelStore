@@ -595,7 +595,7 @@ header('location: ../login.php');
                                     <div class="row">
                          <?php
 include "../toko_online.php";
-$qry_buku=mysqli_query($conn,"select * from produk where id_produk between 25 and 35 ");
+$qry_buku=mysqli_query($conn,"select * from produk where id_produk between 25 and 35 order by id_produk desc ");
 while($dt_buku=mysqli_fetch_array($qry_buku)){
 ?>
  <span class="product-label label-new">New</span>
